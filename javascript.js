@@ -13,26 +13,7 @@ button.addEventListener("click", () => {
   return addSquares(userAnswer * userAnswer);
 });
 
-container.addEventListener("mouseover", function (e) {
-    if (e.target && e.target.classList.contains("square")) {
-      
-      let currentOpacity = parseFloat(e.target.style.opacity) || 0;
-      currentOpacity += 0.1;
-      if (currentOpacity > 1) {
-        currentOpacity = 0.1;
-      }
-      e.target.style.opacity = currentOpacity;
-      
-      
-      e.target.style.background = randomRgb();
-      setTimeout(() => {
-        e.target.style.background = "";
-      }, 500);
-      // Remove the darkening after 4 secs
-      setTimeout(() => {
-          e.target.style.opacity = ""; 
-      }, 2000);
-    }
+
 
 function addSquares(num) {
   clearSquares();
@@ -55,4 +36,25 @@ function randomRgb() {
   var b = num & 255;
   return "rgb(" + r + ", " + g + ", " + b + ")";
 }
+
+container.addEventListener("mouseover", function (e) {
+    if (e.target && e.target.classList.contains("square")) {
+      
+      let currentOpacity = parseFloat(e.target.style.opacity) || 0;
+      currentOpacity += 0.1;
+      if (currentOpacity > 1) {
+        currentOpacity = 0.1;
+      }
+      e.target.style.opacity = currentOpacity;
+      
+      
+      e.target.style.background = randomRgb();
+      setTimeout(() => {
+        e.target.style.background = "";
+      }, 500);
+      // Remove the darkening after 4 secs
+      setTimeout(() => {
+          e.target.style.opacity = ""; 
+      }, 2000);
+    }
 });
